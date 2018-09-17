@@ -1,0 +1,5 @@
+profile: function-aws
+defaultPackage: grachio
+---
+testFramework: spock
+sourceLanguage: groovy
