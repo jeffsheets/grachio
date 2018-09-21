@@ -15,9 +15,10 @@ class GrachioFunctionSpec extends Specification {
         def result = client.grachio().blockingGet()
 
         then:
-        result.rachioData.size() == 10
+        result.rachioData.size() == 5
         result.rachioData[0].date > 10000
         result.rachioData[0].waterMinutes
+        result.rachioData[0].weather
 
         cleanup:
         if(server != null) server.stop()
