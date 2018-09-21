@@ -36,7 +36,7 @@ class SheetsService {
         //[[June 26, 2016 at 09:26AM, 174], [July 9, 2016 at 07:48AM, 74]]
         data.values.collect {
             Date date = dateFormat.parse(it[0])
-            [date: date.getTime() / 1000, waterMinutes: it[1], prettyDate: it[0]]
+            [date: date.getTime(), waterMinutes: it[1]]
         }
     }
 }

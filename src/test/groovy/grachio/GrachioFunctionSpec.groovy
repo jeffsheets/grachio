@@ -18,7 +18,6 @@ class GrachioFunctionSpec extends Specification {
         result.rachioData.size() == 10
         result.rachioData[0].date > 10000
         result.rachioData[0].waterMinutes
-        result.rachioData[0].prettyDate
 
         cleanup:
         if(server != null) server.stop()
