@@ -9,5 +9,5 @@ import javax.inject.Named
 interface GrachioClient {
 
     @Named("grachio")
-    Single<Map<String, String>> grachio()
+    Single<Map<String, Object>> grachio()
 }

@@ -41,6 +41,7 @@ dependencyManagement {
 dependencies {
     compile "io.micronaut:function-groovy"
     compile "io.micronaut:runtime-groovy"
+    compile 'io.micronaut:http-client'
     compileOnly "io.micronaut:inject-groovy"
     runtime "ch.qos.logback:logback-classic:1.2.3"
     runtime "com.amazonaws:aws-lambda-java-log4j2:1.0.0"

@@ -6,13 +6,18 @@ import spock.lang.Specification
 
 class GrachioFunctionSpec extends Specification {
 
-    void "test grachio function"() {
+    void "functional test grachio against real Google Sheets api endpoint"() {
         given:
         EmbeddedServer server = ApplicationContext.run(EmbeddedServer)
         GrachioClient client = server.getApplicationContext().getBean(GrachioClient)
 
-        expect:
-        client.grachio().blockingGet() == [grachio: 'jeff sheets']
+        when:
+        def result = client.grachio().blockingGet()
+
+        then:
+        result.rachioData[0].date == 1466951160000
+        result.rachioData[0].waterMinutes == '174'
+        result.rachioData[0].prettyDate == 'Sun Jun 26 09:26:00 CDT 2016'
 
         cleanup:
         if(server != null) server.stop()
