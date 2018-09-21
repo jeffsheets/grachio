@@ -31,10 +31,12 @@ class SheetsService {
 
         Map data = httpClient.retrieve(HttpRequest.GET("${myRachioSpreadsheetId}/values/B1:C1000?key=${key}"), Map).blockingFirst()
 
+        dateFormat.setTimeZone(TimeZone.getTimeZone('America/Chicago'))
+
         //[[June 26, 2016 at 09:26AM, 174], [July 9, 2016 at 07:48AM, 74]]
         data.values.collect {
             Date date = dateFormat.parse(it[0])
-            [date: date, waterMinutes: it[1], prettyDate: date.toString()]
+            [date: date.getTime() / 1000, waterMinutes: it[1], prettyDate: date.toString()]
         }
     }
 }

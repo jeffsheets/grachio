@@ -14,7 +14,10 @@ import javax.inject.Inject
 Map<String, Object> grachio() {
   log.debug 'starting grachio function'
 
-  [
+  def result = [
     rachioData: sheetsService.getRachioData().takeRight(10)
   ]
+
+  log.debug('result is {}', result)
+  result
 }
