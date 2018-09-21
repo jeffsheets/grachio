@@ -15,9 +15,10 @@ class GrachioFunctionSpec extends Specification {
         def result = client.grachio().blockingGet()
 
         then:
-        result.rachioData[0].date == 1466951160000
-        result.rachioData[0].waterMinutes == '174'
-        result.rachioData[0].prettyDate == 'Sun Jun 26 09:26:00 CDT 2016'
+        result.rachioData.size() == 10
+        result.rachioData[0].date > 10000
+        result.rachioData[0].waterMinutes
+        result.rachioData[0].prettyDate
 
         cleanup:
         if(server != null) server.stop()
