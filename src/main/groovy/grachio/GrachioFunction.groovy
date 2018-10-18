@@ -16,7 +16,7 @@ import javax.inject.Inject
 Map<String, Object> grachio() {
   log.debug 'starting grachio function'
 
-  List rachioData = sheetsService.getRachioData().takeRight(10)
+  List rachioData = sheetsService.getRachioData().takeRight(20)
 
   def result = [
     rachioData: rachioData.collect {
